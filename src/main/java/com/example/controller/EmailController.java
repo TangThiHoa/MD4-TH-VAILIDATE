@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 @Controller
 public class EmailController {
+//    tạo một biến static String EMAIL_REGEX chứa định dạng regular expression của email.
     private static final String EMAIL_REGEX = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
     private static Pattern pattern;
     private Matcher matcher;
@@ -24,6 +25,7 @@ public class EmailController {
     }
 
     @PostMapping("/validate")
+//    tạo một phương thức validate để kiểm tra email cần kiểm tra có hợp lệ với EMAIL_REGEX đã định nghĩa hay không.
     String validateEmail(@RequestParam("email") String email, Model model) {
         boolean isValid = this.validate(email);
         if (!isValid) {
